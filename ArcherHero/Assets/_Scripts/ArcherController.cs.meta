@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream:ArcherHero/Assets/_Scripts/ArcherController.cs.meta
 guid: da2536abb21cd52418569fb5a7b714ad
+=======
+guid: 423d4af32c182fe448fc9cb38bef8a84
+>>>>>>> Stashed changes:ArcherHero/Assets/_Scripts/PlayerController.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
