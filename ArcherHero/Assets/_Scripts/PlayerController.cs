@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class ArcherController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {   
     private CharacterController controller;
     private CharacterController Controller{get { return controller = controller ?? GetComponent<CharacterController>();} }
