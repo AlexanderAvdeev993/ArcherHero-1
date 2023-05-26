@@ -72,13 +72,15 @@ public static class SaveSystem
     {
         string json = JsonConvert.SerializeObject(perkData);
         File.WriteAllText(savePathPerk, json); 
+        Debug.Log("save" + json);
     }
 
     public static Dictionary<PerkManager.PerkType, PerkManager.PerkStatus> LoadPerkData()
     {       
         string json = File.ReadAllText(savePathPerk);
         try
-        {
+        { 
+           Debug.Log("load" + json);
            return JsonConvert.DeserializeObject<Dictionary<PerkManager.PerkType, PerkManager.PerkStatus>>(json);
         }
         catch(Exception)

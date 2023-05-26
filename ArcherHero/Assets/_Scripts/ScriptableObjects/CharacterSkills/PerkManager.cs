@@ -103,10 +103,17 @@ public class PerkManager : MonoBehaviour
         _xpCounter.UpdateXPCounter();
     }
 
-
     public void AvailablePerk(PerkType perk)
     {
         _perkStates[perk] = PerkStatus.Available;
+    }
+}
+
+public class Perk1 : IPerk
+{
+    public void ApplyPerk(Player player)
+    {
+        // Apply the logic for Perk 1 to the player
     }
 }
     
