@@ -39,8 +39,6 @@ public class PlayerController : UnitController<PlayerView, PlayerModel>
     public void SetFirstSkill( Skill skill )
     {
         _firstSkill = skill;
-
-
     }
     public void SetSecondSkill(Skill skill)
     {
@@ -64,10 +62,5 @@ public class PlayerController : UnitController<PlayerView, PlayerModel>
     {
         base.Death();
         SceneManager.LoadScene(1);
-    }
-
-    internal void SetFirstSkill(List<IPerk> purchasedPerks)
-    {
-        throw new NotImplementedException();
     }
 }

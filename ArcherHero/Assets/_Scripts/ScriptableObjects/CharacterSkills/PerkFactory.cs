@@ -33,7 +33,7 @@ public class Perk1 : IPerk
     public void Apply(PlayerController playerController)
     {
         Debug.Log("Perk1 Dash");
-       
+        playerController.
     }
 }
 public class Perk2 : IPerk
