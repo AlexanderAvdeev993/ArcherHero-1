@@ -104,7 +104,7 @@ public static class SaveSystem
     {
         string json = File.ReadAllText(savePathPerk);
 
-        if (json != null)
+        if (json == null)
         {
             try
             {
