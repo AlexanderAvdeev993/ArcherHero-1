@@ -1,6 +1,13 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Enemy : Entity
 {
-    public float damage;
+    
+    
+    protected override void Die()
+    {
+        base.Die();
+        //Destroy(gameObject);
+    }
 }

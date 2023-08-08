@@ -25,9 +25,9 @@ public class RangeEnemy : Enemy
     
     private ProjectilePool _projectilePool;
 
-    public TypeDamage _typeDamage;
-    
-    
+    //public TypeDamage _typeDamage;
+    private bool _isTargetAttackNull;
+
 
     [Inject]
     private void Construct(ProjectilePool projectilePool)
@@ -36,15 +36,16 @@ public class RangeEnemy : Enemy
     }
     
     private void Start()
-    {   
+    {
+        _isTargetAttackNull = _targetAttack == null;
         GameObject gObject = GameObject.FindGameObjectWithTag("Player");
         _targetAttack = gObject.transform;
         
         
         _agent = GetComponent<NavMeshAgent>();
         StartRandomMovement().Forget();
-        _weapon = new Weapon(_projectilePool.GetPool(ProjectileOwner.SimpleEnemy, _typeDamage));
-        _weapon.StartAttack(() => _targetAttack, _spawnProjectile, 30 , 30);
+        _weapon = new Weapon(_projectilePool.GetPool(ProjectileOwner.SimpleEnemy, typeDamage));
+        _weapon.StartAttack(() => _targetAttack, _spawnProjectile, damage , speedAttack);
     }
     
     private async UniTaskVoid StartRandomMovement()
@@ -58,7 +59,6 @@ public class RangeEnemy : Enemy
             _agent.SetDestination(_targetPosition);
             
             await UniTask.WaitUntil(() => !isMoving);
-
             await UniTask.Delay(TimeSpan.FromSeconds(_timeToChangeDirection), cancellationToken: _cancellationToken.Token). SuppressCancellationThrow(); 
         }
     }
@@ -73,7 +73,7 @@ public class RangeEnemy : Enemy
 
     private void RotateTowardsTargetAttack()
     {
-        if (_targetAttack == null) return;
+        if (_isTargetAttackNull) return;
         
         Vector3 direction = _targetAttack.position - transform.position;
         direction.y = 0f;
@@ -85,7 +85,6 @@ public class RangeEnemy : Enemy
     
     private void Update()
     {
-        
         if (isMoving && !_agent.pathPending && _agent.remainingDistance <= _agent.stoppingDistance)
         {
             isMoving = false; 
