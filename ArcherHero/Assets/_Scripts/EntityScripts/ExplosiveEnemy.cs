@@ -92,7 +92,7 @@ public class ExplosiveEnemy : Enemy
         }
     }
 
-    private void ExplosiveAttack()
+    protected virtual void ExplosiveAttack()
     {
         if (_distanceToTarget <= _explosionRadius)
         {   
@@ -124,7 +124,7 @@ public class ExplosiveEnemy : Enemy
     }
     
     
-    protected override void Die()
+    private void Die()
     {
         _cancellationTokenAttack?.Cancel();
         

@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class Enemy : Entity
 {
     public event Action<Enemy> OnEnemyDie; 
