@@ -205,9 +205,9 @@ MonoBehaviour:
   typeDamage: 0
   _moveSpeed: 1000
   _rotationSpeed: 0.05
-  damage: 10
-  speedAttack: 60
-  currentHealth: 100
+  damage: 7
+  speedAttack: 40
+  currentHealth: 40
   _pointsForDestruction: 15
   _timeToChangeDirection: 5
   _movementBoundsX: 5.5
